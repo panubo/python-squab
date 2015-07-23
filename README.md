@@ -2,7 +2,7 @@
 
 ## Install
 
-    pip install git+https://github.com/panubo/squab.git#egg=squab 
+    pip install git+https://github.com/panubo/python-squab.git#egg=squab
 
 ## Development
 
