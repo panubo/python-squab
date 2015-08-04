@@ -76,7 +76,7 @@ class BaseDocument(DocumentInterface):
                 self._rev = result['rev']
                 self._id = result['id']
         except requests.ConnectionError, e:
-            CouchConnectionException("Error: %s" % str(e))
+            raise CouchConnectionException("Error: %s" % str(e))
 
     def delete(self):
         if self._rev:
@@ -89,7 +89,7 @@ class BaseDocument(DocumentInterface):
                     raise CouchRequestException('Error: %s. %s' % (r.status_code, r.text))
                 self._deleted = True
             except requests.ConnectionError, e:
-                CouchRequestException("Error: %s" % str(e))
+                raise CouchRequestException("Error: %s" % str(e))
         else:
             raise NotPersistedException('Tried to delete non existent document')
 
@@ -104,4 +104,4 @@ class BaseDocument(DocumentInterface):
                 raise CouchRequestException('Error: %s. %s' % (r.status_code, r.text))
             return json.loads(r.text)
         except requests.ConnectionError, e:
-            CouchConnectionException("Error: %s" % str(e))
+            raise CouchConnectionException("Error: %s" % str(e))
