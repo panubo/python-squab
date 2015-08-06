@@ -53,7 +53,7 @@ doc = Zone(connection=connection, _id=_id)
 doc.update(name=obj.domain_name,
            serial=obj.serial,
            data=obj.render())
-return doc.save()
+doc.save()
 
 ```
 
