@@ -91,7 +91,8 @@ class BaseDocument(DocumentInterface):
             except requests.ConnectionError, e:
                 raise CouchRequestException("Error: %s" % str(e))
         else:
-            raise NotPersistedException('Tried to delete non existent document')
+            if not self.connection.ignore_missing:
+                raise NotPersistedException('Tried to delete non existent document')
 
     def _get_json(self, _id):
         headers = {}
