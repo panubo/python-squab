@@ -1,3 +1,9 @@
+# Notice:
+
+This repository is no longer maintained and has been archived.
+
+---
+
 # Simple CouchDB Python Bindings
 
 Squab is a simple and minimal library that provides [CouchDB](http://couchdb.apache.org/) bindings for your Python
